@@ -2,6 +2,14 @@ from rest_framework import serializers
 from .models import *
 
 class TaskSerializer(serializers.ModelSerializer):
+    '''
+    Instruct serializer that category_id is a foreign key
+    in Task model
+    '''
+    category_id = serializers.PrimaryKeyRelatedField(
+        queryset=Category.objects.all(),
+        source='category')
+
     class Meta:
         model = Task
         fields = (
