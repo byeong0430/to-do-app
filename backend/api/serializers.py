@@ -9,7 +9,13 @@ class TaskSerializer(serializers.ModelSerializer):
             'end_date', 'category_id'
         )
 
+    def create(self, validated_data):
+        return Task.objects.create(**validated_data)
+
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ('pk', 'name')
+
+    def create(self, validated_data):
+        return Category.objects.create(**validated_data)
