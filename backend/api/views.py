@@ -25,7 +25,7 @@ class CategoryList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = CategorySerializer(data=request.POST)
+        serializer = CategorySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -43,7 +43,7 @@ class CategoryDetail(APIView):
 
     def put(self, request, category_id, format=None):
         category = get_object(Category, category_id)
-        serializer = CategorySerializer(category, data=request.POST, partial=True)
+        serializer = CategorySerializer(category, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -76,7 +76,7 @@ class TaskList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
-        serializer = TaskSerializer(data=request.POST)
+        serializer = TaskSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -96,7 +96,7 @@ class TaskDetail(APIView):
     # Set partial=True to allow partial change
     def put(self, request, task_id, format=None):
         task = get_object(Task, task_id)
-        serializer = TaskSerializer(task, data=request.POST, partial=True)
+        serializer = TaskSerializer(task, data=request.data, partial=True)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
