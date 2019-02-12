@@ -11,7 +11,19 @@ export const getTaskList = async () => {
     const { status, data } = response;
 
     if (status === 200 || status === 201) {
-      console.log({status, data});
+      return { status, data };
+    }
+  } catch (error) {
+    return error;
+  }
+};
+
+export const getCategoryList = async () => {
+  try {
+    const response = await instance.get('./categories');
+    const { status, data } = response;
+
+    if (status === 200 || status === 201) {
       return { status, data };
     }
   } catch (error) {
