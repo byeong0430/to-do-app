@@ -4,7 +4,7 @@ const INITIAL_STATE = {
 
 export const categoryReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case 'SAVE_CAT_LIST':
+    case 'GET_CAT_LIST':
       return {
         ...state,
         categories: action.payload
