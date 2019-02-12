@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import './index.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'material-design-icons/iconfont/material-icons.css';
+import './index.scss';
 import App from './App';
 import { store } from './redux/store';
 import * as serviceWorker from './serviceWorker';
